@@ -51,3 +51,20 @@ echo "-----------------------------"
 echo "${ArithArray[@]}"
 echo "-----------------------------"
 
+for  (( i=0; i<$ArrayLth; i++ ))
+do
+        for (( j=$((i+1)); j<$ArrayLth; j++ ))
+        do
+                if [ ${ArithArray[i]} -gt ${ArithArray[j]} ]
+                then
+                        temp=${ArithArray[i]}
+                        ArithArray[i]=${ArithArray[j]}
+                        ArithArray[j]=$temp
+                fi
+        done
+done
+
+echo "Array sorted by Ascending Order"
+echo "-----------------------------"
+echo "${ArithArray[@]}"
+echo "-----------------------------"
