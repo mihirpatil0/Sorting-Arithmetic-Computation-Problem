@@ -8,5 +8,6 @@ read -p "Enter Third Input in Number Format : " num3
 
 echo -e "First Input : $num1\nSecond Input : $num2\nThird Input : $num3 "
 
-AddandMulti=$(($num1+$num2*$num3))
-echo "OutPut of Arithmetic Operation ( $num1+$num2*$num3 ) is : $AddandMulti"
+#AddandMulti=$(($num1+$num2*$num3))
+AddandMulti=$(($num1*$num2+$num3))
+echo "OutPut of Arithmetic Operation ( $num1*$num2+x$num3 ) is : $AddandMulti"
