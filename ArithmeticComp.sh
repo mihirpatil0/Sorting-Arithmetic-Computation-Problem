@@ -13,8 +13,8 @@ echo -e "First Input : $num1\nSecond Input : $num2\nThird Input : $num3 "
 
 Dict[a+b*c]=$(($num1+$num2*$num3))
 Dict[a*b+c]=$(($num1*$num2+$num3))
-Dict[c+a/b]=$(awk "BEGIN{print ($num3+$num1/$num2)}")
-Dict[a%b+c]=$(awk "BEGIN{print ($num1%$num2+$num3)}")
+Dict[c+a/b]=$(($num3+$num1/$num2))
+Dict[a%b+c]=$(($num1%$num2+$num3))
 
 echo "OutPut of Arithmetic Operation Stored inside Dictionary is"
 
@@ -30,6 +30,24 @@ for i in ${!ArithArray[@]}
 do
 	echo "Result[$i] = ${ArithArray[$i]}"
 done
+echo "--------------------"
+ArrayLth=${#ArithArray[@]}
+temp=0
+for  (( i=0; i<$ArrayLth; i++ ))
+do
+        for (( j=$((i+1)); j<$ArrayLth; j++ ))
+        do
+                if [ ${ArithArray[i]} -lt ${ArithArray[j]} ]
+                then
+                        temp=${ArithArray[i]}
+                        ArithArray[i]=${ArithArray[j]}
+                        ArithArray[j]=$temp
+                fi
+        done
+done
 
-
+echo "Array sorted by Descending Order"
+echo "-----------------------------"
+echo "${ArithArray[@]}"
+echo "-----------------------------"
 
