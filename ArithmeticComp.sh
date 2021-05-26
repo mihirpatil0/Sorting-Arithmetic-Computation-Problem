@@ -3,6 +3,7 @@
 echo "Welcome to Arithmetic Computation & Sorting Problem"
 
 declare -A Dict
+declare -a ArithArray
 
 read -p "Enter First Input in Number Format : " num1
 read -p "Enter second Input in Number Format : " num2
@@ -16,7 +17,19 @@ Dict[c+a/b]=$(awk "BEGIN{print ($num3+$num1/$num2)}")
 Dict[a%b+c]=$(awk "BEGIN{print ($num1%$num2+$num3)}")
 
 echo "OutPut of Arithmetic Operation Stored inside Dictionary is"
+
+counter=0
 for Key in ${!Dict[@]}
 do
-echo $Key = ${Dict[$Key]}
+	echo $Key = ${Dict[$Key]}
+	ArithArray[counter++]=${Dict[$Key]}
 done
+
+echo "Following are the elemennts of an Array"
+for i in ${!ArithArray[@]}
+do
+	echo "Result[$i] = ${ArithArray[$i]}"
+done
+
+
+
